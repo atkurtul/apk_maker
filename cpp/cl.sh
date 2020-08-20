@@ -1,0 +1,10 @@
+export NDK_LIBS_OUT=./libs/lib
+export NDK_PROJECT_PATH=.
+export CURRENT_ABI=x86
+ndk-build NDK_APPLICATION_MK=./Application.mk
+export CURRENT_ABI=x86_64
+ndk-build NDK_APPLICATION_MK=./Application.mk
+export CURRENT_ABI=armeabi-v7a
+ndk-build NDK_APPLICATION_MK=./Application.mk
+export CURRENT_ABI=arm64-v8a
+ndk-build NDK_APPLICATION_MK=./Application.mk

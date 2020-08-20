@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/atil/android-sdk/ndk-bundle/sysroot/usr/include",
+                "/home/atil/android-sdk/ndk-bundle/sources/android/native_app_glue",
+                "/home/atil/android-sdk/ndk-bundle/sources/android/support/include"
+            ],
+            "defines": [],
+            "compilerPath": "/home/atil/android-sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": []
+            }
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.rs": "rust",
+        "cstdlib": "cpp",
+        "cstring": "cpp"
+    }
+}
