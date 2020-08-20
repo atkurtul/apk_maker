@@ -201,7 +201,9 @@ static void engine_term_display(struct engine* engine) {
  */
 static int32_t engine_handle_input(struct android_app* app, AInputEvent* event) {
     auto* engine = (struct engine*)app->userData;
-    if (AInputEvent_getType(event) == AINPUT_EVENT_TYPE_MOTION) {
+    int32_t type = AInputEvent_getType(event);
+    LOGI("Got input of type %d", type);
+    if (type == AINPUT_EVENT_TYPE_MOTION) {
         engine->animating = 1;
         engine->state.x = AMotionEvent_getX(event, 0);
         engine->state.y = AMotionEvent_getY(event, 0);
@@ -215,6 +217,7 @@ static int32_t engine_handle_input(struct android_app* app, AInputEvent* event) 
  */
 static void engine_handle_cmd(struct android_app* app, int32_t cmd) {
     auto* engine = (struct engine*)app->userData;
+    LOGI("Handling proc %d", cmd);
     switch (cmd) {
         case APP_CMD_SAVE_STATE:
             // The system has asked us to save our current state.  Do so.
@@ -348,7 +351,8 @@ void android_main(struct android_app* state) {
         // If animating, we loop until all events are read, then continue
         // to draw the next frame of animation.
         while ((ident=ALooper_pollAll(engine.animating ? 0 : -1, nullptr, &events,
-                                      (void**)&source)) >= 0) {
+                                      (void**)&source)) >= 0) 
+        {
 
             // Process this event.
             if (source != nullptr) {
